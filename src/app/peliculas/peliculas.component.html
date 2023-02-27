@@ -1,1 +1,9 @@
 <h1>PELICULAS</h1>
+<input type="text">
+<button  (click)="mostrarPeliculas()">Enviar</button>
+
+
+    <div *ngFor="let peli of peliculas">
+        <h2 >{{peli.titulo}}</h2>
+    </div>
+
