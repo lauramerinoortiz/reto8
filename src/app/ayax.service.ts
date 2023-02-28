@@ -12,7 +12,7 @@ export class AyaxService {
   }
 
   mostrar(hola:String): Pelicula[] {
-
+    PELICULAS.length=0
     let xhr= new XMLHttpRequest()
     xhr.open('GET', 'https://imdb-api.com/en/API/SearchMovie/k_49m7hzhe/'+hola, true)
     xhr.onload=function (){
