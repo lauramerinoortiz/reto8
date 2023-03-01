@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PELICULAS } from '../mock-pelis';
 import { Pelicula } from '../peliculas';
 import { AyaxService } from '../ayax.service';
+import { IDBService } from '../idb.service';
 
 @Component({
   selector: 'app-peliculas',
@@ -10,17 +11,17 @@ import { AyaxService } from '../ayax.service';
 })
 export class PeliculasComponent {
  pelicula: String = "";
-  constructor(private ayax: AyaxService){
+ peliculas: Pelicula[] =[];
+  constructor(private ayax: AyaxService, public idb: IDBService){
     
   };
   
-
-  peliculas: Pelicula[] =[];
-
+  anadirFavoritos(pelicula:Pelicula):void{
+    this.idb.insertar(pelicula);
+  }
   
-  
-  mostrarPeliculas(){
-    console.log(this.pelicula)
+  mostrarPeliculas():void{
+    
     this.peliculas = this.ayax.mostrar(this.pelicula);
    
     /*this.peliculas=PELICULAS;
