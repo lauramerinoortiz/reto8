@@ -8,6 +8,7 @@ import { tipo } from './mensaje';
 })
 export class IDBService {
   private baseDatos!:IDBDatabase;
+  private favoritas:Pelicula[]=[]
   constructor(public aviso:MensajeriaService) { }
  
   conexionBD():void{
@@ -29,6 +30,15 @@ export class IDBService {
 				
 			}
 		}	
+	}
+	obtenerRegistro(): Pelicula[]{
+		const peticion= this.baseDatos.transaction('peliculas', 'readonly').objectStore('peliculas').getAll();
+		
+		peticion.onsuccess = () => {
+			this.favoritas = peticion.result
+			
+		}
+		return this.favoritas;
 	}
 	insertar(pelicula:Pelicula){
 		let obj = pelicula
