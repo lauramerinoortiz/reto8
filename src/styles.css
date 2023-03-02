@@ -3,3 +3,12 @@
     height: 200px;
     width: 150px;
 }
+.exito{
+    color: green;
+}
+.error{
+    color: red;
+}
+.info{
+    color:blue;
+}

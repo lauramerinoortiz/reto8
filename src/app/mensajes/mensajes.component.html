@@ -1,0 +1,2 @@
+<div *ngIf="mensajeService.mensaje" [class.exito]="mensajeService.mensaje.tipo==1" [class.info]="mensajeService.mensaje.tipo==0" [class.error]="mensajeService.mensaje.tipo==3"> {{mensajeService.mensaje.descripcion}} </div>
+

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Mensaje, tipo } from '../mensaje';
+import { MensajeriaService } from '../mensajeria.service';
 
 @Component({
   selector: 'app-favoritas',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./favoritas.component.css']
 })
 export class FavoritasComponent {
+
+    
 
 }
