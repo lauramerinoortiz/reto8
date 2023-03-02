@@ -1,4 +1,5 @@
 <h1>FAVORITAS</h1>
+<button  (click)="mostrarFavoritas()">Refrescar</button>
 <div *ngFor="let fav of peliculas">
     <h2 >{{fav.titulo}}</h2>
     <img class="imagen" src="{{fav.imagen}}">
