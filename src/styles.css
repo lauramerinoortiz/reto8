@@ -12,3 +12,7 @@
 .info{
     color:blue;
 }
+
+h2{
+    cursor: pointer;
+}

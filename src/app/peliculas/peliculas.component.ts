@@ -3,6 +3,7 @@ import { PELICULAS } from '../mock-pelis';
 import { Pelicula } from '../peliculas';
 import { AyaxService } from '../ayax.service';
 import { IDBService } from '../idb.service';
+import { RepartoComponent } from '../reparto/reparto.component';
 
 @Component({
   selector: 'app-peliculas',
@@ -12,6 +13,7 @@ import { IDBService } from '../idb.service';
 export class PeliculasComponent {
  pelicula: String = "";
  peliculas: Pelicula[] =[];
+ reparto: RepartoComponent = new RepartoComponent; 
   constructor(private ayax: AyaxService, public idb: IDBService){
     
   };
@@ -21,15 +23,18 @@ export class PeliculasComponent {
   }
   
   mostrarPeliculas():void{
-    
     this.peliculas = this.ayax.mostrar(this.pelicula);
-   
     /*this.peliculas=PELICULAS;
     console.log(this.peliculas)*/
   }
+
+  mostrarReparto(pelicula:Pelicula):void{
+    this.reparto.actores=this.ayax.verActores(pelicula)
+    console.log(this.reparto.actores)
+  }
+
   ngOnInit(): void {
     this.mostrarPeliculas()
   }
-
   
 }

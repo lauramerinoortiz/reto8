@@ -53,5 +53,6 @@ export class IDBService {
 			this.aviso.add('Repetido','Ya está añadida a Favoritos.', tipo.error)
 		}
 	}
+
 }
 
