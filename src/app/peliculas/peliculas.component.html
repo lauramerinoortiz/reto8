@@ -1,10 +1,13 @@
 <h1>PELICULAS</h1>
 <input id="name" type="text" [(ngModel)]="pelicula" placeholder="nombre">
 <button  (click)="mostrarPeliculas()">Enviar</button>
+
 <app-mensajes></app-mensajes>
+<app-reparto [actores]="actores"></app-reparto>
     <div *ngFor="let peli of peliculas">
-        <h2 (click)="mostrarReparto(peli)" routerLink="/reparto">{{peli.titulo}}</h2>
+        <h2 (click)="mostrarReparto(peli)">{{peli.titulo}}</h2>
         <img class="imagen" src="{{peli.imagen}}">
         <button (click)="anadirFavoritos(peli)">⭐</button>
     </div>
-
+    
+   

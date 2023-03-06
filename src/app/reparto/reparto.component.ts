@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Actor } from '../actor';
 import { IDBService } from '../idb.service';
 import { Pelicula } from '../peliculas';
+import { PeliculasComponent } from '../peliculas/peliculas.component';
 
 @Component({
   selector: 'app-reparto',
@@ -10,7 +11,7 @@ import { Pelicula } from '../peliculas';
 })
 
 export class RepartoComponent {
-  public actores:Actor[]=[];
+   @Input() actores!:Actor[];
 
   //  mostrarReparto(actor:Actor[]):void{
   //      this.actores=actor

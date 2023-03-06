@@ -21,6 +21,7 @@ export class AyaxService {
     if(xhr.status==200){
       let resp= JSON.parse(this.response)
         let datos=resp.results
+        let contador=1
         for(let peli of datos){
             //console.log(peli)
             let dato:Pelicula =
@@ -30,7 +31,10 @@ export class AyaxService {
                     titulo:peli.title,
                     descripcion:peli.description
                 }
-            PELICULAS.push(dato)
+            if(contador<20){
+              PELICULAS.push(dato)
+            }
+            
         }
     }
     }
@@ -51,13 +55,18 @@ export class AyaxService {
 			if(xhr.status==200){
 			let resp= JSON.parse(this.response)
 				let datos=resp.actors
+        let contador=1
 				for(let actor of datos){
           //console.log(actor)
           let dato:Actor =
               {
                   nombre:actor.name
               }
+          
+          if(contador<10){
           ACTORES.push(dato)
+        }
+        contador++
       }
 			}
 		}

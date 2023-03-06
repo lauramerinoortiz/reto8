@@ -4,6 +4,7 @@ import { Pelicula } from '../peliculas';
 import { AyaxService } from '../ayax.service';
 import { IDBService } from '../idb.service';
 import { RepartoComponent } from '../reparto/reparto.component';
+import { Actor } from '../actor';
 
 @Component({
   selector: 'app-peliculas',
@@ -14,6 +15,7 @@ export class PeliculasComponent {
  pelicula: String = "";
  peliculas: Pelicula[] =[];
  reparto: RepartoComponent = new RepartoComponent; 
+ actores!:Actor[]
   constructor(private ayax: AyaxService, public idb: IDBService){
     
   };
@@ -29,8 +31,8 @@ export class PeliculasComponent {
   }
 
   mostrarReparto(pelicula:Pelicula):void{
-    this.reparto.actores=this.ayax.verActores(pelicula)
-    console.log(this.reparto.actores)
+    this.actores=this.ayax.verActores(pelicula)
+    console.log(this.actores)
   }
 
   ngOnInit(): void {
